@@ -8,7 +8,7 @@
     <title>Vite App</title>
   </head>
   <body
-    class="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen grid grid-rows-[auto,1fr,auto]"
+    class="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen grid grid-rows-[auto,1fr,auto] content-between"
   >
     <header>
       <nav class="container flex justify-between items-center mx-auto px-4">
@@ -83,10 +83,51 @@
       </nav>
     </header>
 
-    <main class="container mx-auto my-7"></main>
+    <main class="container mx-auto my-7">
+      <div class="w-80 mx-auto mt-16 px-4 py-8">
+
+        <p class="mb-6">Please log in to access your profile and feed.</p>
+        <form action="/profile" class="space-y-4">
+          <div>
+            <label for="email" class="block text-sm font-medium mb-2"
+              >Email</label
+            >
+            <input
+              type="text"
+              id="email"
+              name="email"
+              required
+              class="w-full p-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-200"
+              placeholder="Enter your email"
+            />
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-medium mb-2"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              class="w-full p-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-200"
+              placeholder="Enter your password"
+              minlength="8"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-300"
+          >
+            Login
+          </button>
+        </form>
+      </div>
+    </main>
     <footer>
       <div class="text-center py-4 bg-gray-200 dark:bg-gray-800">
         <p class="text-sm text-gray-600 dark:text-gray-400">
+            
           &copy; 2023 Action House. All rights reserved.
         </p>
       </div>
