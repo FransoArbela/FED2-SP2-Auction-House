@@ -34,6 +34,7 @@
             <a
               href="/pages/profile/profile.html"
               data-link
+              id="profile-link"
               class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-700 dark:hover:text-blue-400 dark:text-gray-200 transition duration-300 authed"
               >Profile</a
             >
@@ -83,7 +84,40 @@
       </nav>
     </header>
 
-    <main class="container mx-auto my-7"></main>
+    <main class="container mx-auto my-7">
+
+
+      <div
+        id="profile-container"
+        class="max-w-md mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md"
+      >
+        <h2 class="text-2xl font-semibold mb-4">User Information</h2>
+        <p class="mb-2">
+          <span class="font-semibold">Name:</span>
+          <span id="user-name">Loading...</span>
+        </p>
+        <p class="mb-2">
+          <span class="font-semibold">Email:</span>
+          <span id="user-email">Loading...</span>
+        </p>
+        <p class="mb-4">
+          <span class="font-semibold">Member Since:</span>
+          <span id="user-member-since">Loading...</span>
+        </p>
+        <button
+          id="edit-profile-btn"
+          class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded"
+        >
+          Edit Profile
+        </button>
+      </div>
+
+
+
+
+
+
+    </main>
     <footer>
       <div class="text-center py-4 bg-gray-200 dark:bg-gray-800">
         <p class="text-sm text-gray-600 dark:text-gray-400">

@@ -87,7 +87,7 @@
       <div class="w-80 mx-auto mt-16 px-4 py-8">
 
         <p class="mb-6">Please log in to access your profile and feed.</p>
-        <form action="/profile" class="space-y-4">
+        <form name="loginForm" action="/profile" class="space-y-4">
           <div>
             <label for="email" class="block text-sm font-medium mb-2"
               >Email</label
@@ -99,6 +99,7 @@
               required
               class="w-full p-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-200"
               placeholder="Enter your email"
+              value="samibr02737@stud.noroff.no"
             />
           </div>
           <div>
@@ -109,10 +110,10 @@
               type="password"
               id="password"
               name="password"
+              value="Mypassword12345"
               required
               class="w-full p-2 border border-gray-300 rounded dark:bg-gray-800 dark:text-gray-200"
               placeholder="Enter your password"
-              minlength="8"
             />
           </div>
           <button

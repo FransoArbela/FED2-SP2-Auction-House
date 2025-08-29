@@ -1,10 +1,12 @@
 import { API_BASE } from "../constants";
 
-const login = async (credentials) => {
+const login = async (email, password) => {
 const credentials = {
-    email: "samibr02737@stud.noroff.no",
-    password: "Mypassword12345",
+    email: email,
+    password: password,
   };
+
+  console.log("Logging in with:", credentials);
 
   try {
     const response = await fetch(`${API_BASE}/auth/login`, {
@@ -19,16 +21,16 @@ const credentials = {
     if (!response.ok) {
       throw new Error("Login failed");
     }
-
     const data = await response.json();
-    const token = data.data.accessToken;
 
     const profile = JSON.stringify(data.data);
-
-    localStorage.setItem("token", token);
     localStorage.setItem("profile", profile);
-    loginListener();
+
+    const token = data.data.accessToken;
+    localStorage.setItem("token", token);
+
     return data;
+
   } catch (error) {
     console.error(error);
     throw error;

@@ -2,34 +2,32 @@ export default async function router(pathname = window.location.pathname) {
   switch (pathname) {
     case '/':
     case '/index.html':
-      await import('./pages/home.js');
+      await import('./pages/listings/all-listings.js');
       break;
 
     case '/pages/auth/login.html':
-      await import('./pages/login.js');
+      await import('./pages/auth/login.js');
       break;
 
     case '/pages/auth/register.html':
-      await import('./pages/register.js');
+      await import('./pages/auth/register.js');
       break;
 
     case '/pages/listings/create-listing.html':
-      await import('./pages/create-listing.js');
+      await import('./pages/listings/create-listing.js');
       break;
 
     case '/pages/listings/listings.html':
-      await import('./pages/listing.js');
+      await import('./pages/listings/listing.js');
       break;
     case '/pages/profile/profile.html':
     case '/pages/profile/':
-      await import('./pages/profile.js');
+      await import('./pages/profile/load-profile.js');
       break;
 
     default:
       await import('./notFound/404.js');
   }
-
-  console.log('Router initialized with path:', pathname);
 }
 
 export function navigate(path) {

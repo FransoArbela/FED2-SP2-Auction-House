@@ -1,1 +1,68 @@
 @import "tailwindcss";
+
+/* Light defaults */
+@theme {
+  --color-bg: #f3f1ed;
+  --color-fg: #3d3d3d;
+
+  --color-muted: #bdbec1;
+  --color-border: #e5e7eb;
+
+  --color-primary: #6b8ba4;
+  --color-primary-hover: #58748a;
+
+  --color-secondary: #c08497;
+  --color-secondary-hover: #9b6173;
+
+  --color-card-hover: #fdfdfd;
+
+  --shadow-color: rgba(0, 0, 0, 0.12);
+
+  --shadow: 0 1px 3px 0 var(--shadow-color), 0 1px 2px -1px var(--shadow-color);
+  --shadow-md: 0 4px 6px -1px var(--shadow-color),
+    0 2px 4px -2px var(--shadow-color);
+  --shadow-lg: 0 10px 15px -3px var(--shadow-color),
+    0 4px 6px -4px var(--shadow-color);
+}
+
+:root {
+  --color-bg: #f3f1ed;
+  --color-fg: #3d3d3d;
+
+  --color-muted: #bdbec1;
+  --color-border: #d1d1d2;
+
+  --color-primary: #4b7fa7;
+  --color-primary-hover: #58748a;
+
+  --color-secondary: #c08497;
+  --color-secondary-hover: #9b6173;
+
+  --color-card-hover: #fdfdfd;
+
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dark {
+  --color-bg: #1e1e24;
+  --color-fg: #e8e6e3;
+
+  --color-muted: #bdbec1;
+  --color-border: #e5e7eb;
+
+  --color-primary: #4b7fa7;
+  --color-primary-hover: #98b3c8;
+
+  --color-card-hover: #474c52;
+
+
+  --color-secondary: #d6a5b4;
+  --color-secondary-hover: #9b6173;
+  --shadow-color: rgba(0, 0, 0, 0.651);
+}
+
+
+body {
+   @apply transition-all duration-300 ease-in-out;
+}
