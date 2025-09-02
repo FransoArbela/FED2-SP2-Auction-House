@@ -12,6 +12,6 @@ export const API_AUTH_KEY = `${API_AUTH}/create-api-key`;
 
 export const API_ACTION = `${API_BASE}/auction`;
 
-export const API_ACTION_POSTS = `${API_ACTION}/listings`;
+export const API_ACTION_LISTINGS = `${API_ACTION}/listings`;
 
 export const API_ACTION_PROFILES = `${API_ACTION}/profiles`;

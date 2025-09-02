@@ -1,7 +1,9 @@
-const apiKey = async () => {
+import { API_AUTH_KEY } from "../constants";
+
+export const apiKey = async () => {
   try {
     const response = await fetch(
-      "https://v2.api.noroff.dev/auth/create-api-key",
+      API_AUTH_KEY,
       {
         method: "POST",
         headers: {
@@ -24,4 +26,3 @@ const apiKey = async () => {
   }
 };
 
-export { apiKey };

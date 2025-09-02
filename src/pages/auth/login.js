@@ -12,8 +12,8 @@ form.addEventListener('submit', async (e) => {
   
   const response = await login(email, password);
   if (response) {
-    console.log('Login successful:', response);
+    window.location.href = `${window.location.origin}/index.html`;
   } else {
-    console.error('Login failed:', response);
+    alert('Login failed. Please try again.');
   }
 });

@@ -2,13 +2,13 @@ import  router, {setActiveLink}  from "./router.js";
 import "./styles/main.css"
 import "https://kit.fontawesome.com/553a084866.js";
 import "../src/utils/nightmode.js"
+import { logout } from "./utils/logout.js";
+import { isAuth } from "./utils/isAuth.js";
+
 router();
 setActiveLink();
-
-// document.getElementById("logoutBtn")?.addEventListener("click", () => {
-//   logout();
-//   navigate("/");
-// });
+logout();
+isAuth();
 
 window.addEventListener("DOMContentLoaded", ()=> {
 const profile= localStorage.getItem("profile");
@@ -21,3 +21,5 @@ if (profileLinkElement && profileName) {
     });
 }
 });
+
+
