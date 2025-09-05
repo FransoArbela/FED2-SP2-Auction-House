@@ -37,11 +37,16 @@ export const allListings = async ({
     if (sortOrder) query.set("sortOrder", sortOrder);
   }
 
+  console.log("Fetching listings with URL:", url.toString());
+
   const res = await fetch(url.toString(), {
     method: "GET",
     headers: { accept: "application/json" },
     cache: "no-store",
   });
+
+  const data = await res.json();
+  console.log(data);
   if (!res.ok) throw new Error(`Fetch failed: ${res.status} ${res.statusText}`);
-  return res.json();
+  return data;
 };

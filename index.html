@@ -8,43 +8,47 @@
     <title>Vite App</title>
   </head>
   <body
-    class="bg-[image:var(--color-bg)] text-fg min-h-screen grid grid-rows-[auto,1fr,auto] justify-items-center px-10"
+    class="justify-items-center grid grid-rows-[auto,1fr,auto] bg-[image:var(--color-bg)] px-10 min-h-screen text-fg"
   >
-    <header class="max-w-screen-xl container flex justify-between w-full">
+    <header class="flex justify-between items-center max-w-screen-xl container">
       <!-- logo -->
       <div id="logo">
-        <span class="text-lg font-bold text-muted w-fit">My website</span>
+        <span class="w-fit font-bold text-muted text-lg">My website</span>
       </div>
-      <nav class="">
+      <nav>
         <!-- nav links -->
-        <div class="hidden md:flex items-center space-x-4 gap-6">
+        <div class="hidden sm:flex items-center gap-6 space-x-4">
           <div id="nav-links" class="flex">
             <a
               href="/"
-              class="py-4 px-2 text-muted font-semibold hover:text-primary"
+              data-link
+              class="px-2 py-4 font-semibold text-muted hover:text-primary"
               >Home</a
             >
             <a
               href="/pages/profile/profile.html"
               data-auth
-              class="py-4 px-2 text-muted font-semibold hover:text-primary"
+              data-link
+              class="px-2 py-4 font-semibold text-muted hover:text-primary"
               >Profile</a
             >
             <a
               href="/pages/auth/login.html"
               data-unauth
-              class="py-4 px-2 font-semibold hover:text-primary guest"
+              data-link
+              class="px-2 py-4 font-semibold hover:text-primary guest"
               >Login</a
             >
             <a
               href="/pages/auth/register.html"
               data-unauth
-              class="py-4 px-2 font-semibold hover:text-primary guest"
+              data-link
+              class="px-2 py-4 font-semibold hover:text-primary guest"
               >Register</a
             >
             <button
               id="logoutBtn"
-              class="py-4 px-2 cursor-pointer text-muted font-semibold hover:text-primary"
+              class="px-2 py-4 font-semibold text-muted hover:text-primary cursor-pointer"
               data-auth
             >
               Logout
@@ -52,53 +56,71 @@
           </div>
         </div>
         <!-- mobile-menu -->
-        <div class="flex md:hidden z-40">
+        <div class="sm:hidden z-40 flex">
           <button id="burger-btn">
             <i class="fa-solid fa-bars fa-xl"></i>
           </button>
         </div>
         <div
           id="mobile-menu-wrapper"
-          class="hidden justify-center flex-start absolute bg-blue-800 right-0 top-0 w-full h-screen z-30"
+          class="md:hidden top-0 right-0 z-30 absolute xxs:flex flex-col justify-center items-center gap-15 bg-menu-bg w-full h-screen"
         >
           <a
             href="/"
-            class="py-4 px-2 text-muted font-semibold hover:text-primary"
+            class="hover:text-primary ont-semibold color-fg"
             data-link
             >Home</a
           >
           <a
-            href="/pages/auth/login.html"
+            href="/"
+            class="hover:text-primary ont-semibold color-fg"
+            data-auth
             data-link
-            class="py-4 px-2 font-semibold hover:text-primary guest"
+            >Profile</a
+          >
+          <a
+            href="/pages/auth/login.html"
+            data-unauth
+            data-link
+            class="font-semibold hover:text-primary"
             >Login</a
           >
           <a
             href="/pages/auth/register.html"
+            data-unauth
             data-link
-            class="py-4 px-2 font-semibold hover:text-primary guest"
+            class="font-semibold hover:text-primary"
             >Register</a
           >
-          <button id="logoutBtn" class="cursor-pointer" data-auth>
+          <!-- theme toggle -->
+          <button
+            data-theme-toggle
+            aria-label="Toggle theme"
+            class="cursor-pointer"
+          ></button>
+          <button id="logoutBtn" class="w-fit cursor-pointer" data-auth>
             Logout
           </button>
         </div>
       </nav>
+      <!-- theme toggle -->
       <button
         data-theme-toggle
         aria-label="Toggle theme"
         class="cursor-pointer"
       ></button>
     </header>
-    <main class="container py-18 flex justify-center items-center flex-col">
+    <main
+      class="flex flex-col justify-center items-center py-18 w-full container"
+    >
       <article
-        class="flex flex-col sm:flex-row justify-between items-center mb-4 w-full max-w-screen-xl"
+        class="flex lg:flex-row xxs:flex-col justify-between xxs:items-start lg:items-center gap-6 mb-4 w-full max-w-screen-xl"
       >
-        <div class="flex flex-col sm:flex-row items-center gap-4">
+        <div class="flex xxs:flex-row flex-col items-center gap-4 w-full">
           <label for="sort-select" class="font-medium">Sort by:</label>
           <select
             id="sort-select"
-            class="py-2 px-4 rounded border border-border cursor-pointer hover:bg-secondary-hover transition-colors"
+            class="hover:bg-secondary-hover px-4 py-2 border border-border rounded md:w-36 transition-colors cursor-pointer"
           >
             <option class="bg-[image:var(--color-bg)]">--</option>
             <option
@@ -112,7 +134,7 @@
         </div>
         <form
           name="search-form"
-          class="flex flex-col sm:flex-row items-center gap-4"
+          class="flex xxs:flex-row flex-col justify-center xxs:justify-start lg:justify-center items-center gap-4 w-full"
         >
           <label for="search-input" class="font-medium">Search:</label>
           <input
@@ -120,25 +142,28 @@
             name="search"
             type="text"
             placeholder="Search listings..."
-            class="py-2 px-4 rounded border border-gray-300 text-fg"
+            class="px-4 py-2 border border-gray-300 rounded xxs:w-32 md:w-36 text-fg"
           />
           <button
             id="search-btn"
             type="submit"
-            class="py-2 px-4 rounded bg-primary text-white hover:bg-primary-hover transition-colors cursor-pointer"
+            class="bg-primary hover:bg-primary-hover px-4 py-2 rounded text-white transition-colors cursor-pointer"
           >
             Search
           </button>
         </form>
-        <div id="active-listings" class="flex items-center gap-3">
+        <div
+          id="active-listings"
+          class="flex justify-end xxs:justify-start lg:justify-end items-center gap-3 w-full"
+        >
           <h4>Show active listings</h4>
 
           <div
             id="toggle"
-            class="w-14 h-8 flex items-center bg-gray-300 rounded-full p-1 cursor-pointer transition-colors duration-300"
+            class="flex items-center bg-gray-300 p-1 rounded-full w-14 h-8 transition-colors duration-300 cursor-pointer"
           >
             <div
-              class="bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-300"
+              class="bg-white shadow-md rounded-full w-6 h-6 transition-transform duration-300 transform"
             ></div>
           </div>
         </div>
@@ -146,12 +171,12 @@
 
       <article
         id="listing-content"
-        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-screen-xl justify-center"
+        class="justify-center gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-screen-xl"
       ></article>
     </main>
     <footer>
-      <div class="text-center py-4 bg-surface">
-        <p class="text-sm text-muted">
+      <div class="bg-surface py-4 text-center">
+        <p class="text-muted text-sm">
           &copy; 2023 Action House. All rights reserved.
         </p>
       </div>

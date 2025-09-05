@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+@layer utilities {
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
 /* Light defaults */
 @theme {
   --color-bg: var(--color-bg, #f3f1ed);
@@ -24,14 +36,20 @@
 
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
+
+  --color-menu-bg: var(--color-menu-bg, #ffffff);
+
+  --breakpoint-xxs: 320px;
+  --breakpoint-xs: 480px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1440px;
 }
 
 :root {
-  --color-bg: linear-gradient(
-    135deg,
-    #ebf5f4 12%,
-    #e2cece 99%
-  );
+  --color-bg: linear-gradient(135deg, #f7f7f7 12%, #e5e5e6 99%);
   --color-fg: #3d3d3d;
 
   --color-muted: #bdbec1;
@@ -46,27 +64,18 @@
   --color-card-hover: #fdfdfd;
 
   --color-h-color: #f3f1ed;
-
-  --color-padding-color: linear-gradient(
-    135deg,
-    #eae9e9 12%,
-    #e1e1e1 99%
-  );
-
-
   
-
+  --color-padding-color: linear-gradient(135deg, #eae9e9 12%, #e1e1e1 99%);
 
   --shadow-md: 0 4px 6px rgba(50, 50, 50, 0.169);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+
+
+  --color-menu-bg: #d6ebf4;
 }
 
 .dark {
-  --color-bg: linear-gradient(
-    135deg,
-    #323b3b 12%,
-    #181616 99%
-  );
+  --color-bg: linear-gradient(135deg, #646767 12%, #181616 99%);
   --color-fg: #e8e6e3;
 
   --color-muted: #bdbec1;
@@ -79,16 +88,15 @@
 
   --color-h-color: #3d3d3d;
 
-  --color-padding-color: linear-gradient(
-    135deg,
-    #2828286f 12%,
-    #18181870 99%
-  );
+  --color-padding-color: linear-gradient(135deg, #2828286f 12%, #18181870 99%);
   --color-secondary: #d6a5b4;
   --color-secondary-hover: #9b6173;
-  
+
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.231);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+
+    --color-menu-bg: rgb(20, 31, 48);
+
 }
 
 body {

@@ -20,15 +20,19 @@ export const isAuth = () => {
   });
 };
 
+export function isAuthBid() {
+  document.addEventListener("click", (e) => {
+    const btn = e.target.closest("#place-bid-btn");
+    if (!btn) return; // not the bid button
 
-export const isAuthBid = () => {
-  const token = localStorage.getItem("token");
-  const placeBidBtn = document.getElementById("place-bid-btn");
-
-  placeBidBtn.addEventListener("click", (e) => {
+    const token = localStorage.getItem("token");
     if (!token) {
       e.preventDefault();
-        alert("You must be logged in to place a bid.");
+      e.stopPropagation();
+      alert("You must be logged in to place a bid.");
     }
+    
   });
+
+
 }

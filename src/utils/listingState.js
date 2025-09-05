@@ -1,6 +1,5 @@
-
 export const state = {
-  limit: 40,
+  limit: 60,
   page: 1,
   tag: "",
   active: null,

@@ -36,7 +36,7 @@ export const loadMultipleImgs = (images = [], container) => {
 
   const thumbsContainer = document.createElement("div");
   thumbsContainer.id = "thumbnail-img-container";
-  thumbsContainer.classList = "flex flex-col gap-2 overflow-y-auto max-h-96 ";
+  thumbsContainer.classList = "flex flex-col gap-2 overflow-y-auto max-h-[36rem]";
 
   container.append(heroContainer, thumbsContainer);
 
