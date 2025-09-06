@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/src/utils/nightmode.js"></script>
+    <title>Vite App</title>
+  </head>
+  <body
+    class="bg-[image:var(--color-bg)] text-fg min-h-screen grid grid-rows-[auto,1fr,auto] justify-items-center"
+  >
+    <header class="max-w-screen-xl w-full">
+      <nav class="container flex justify-between items-center px-4 w-full">
+        <!-- logo -->
+        <div id="logo">
+          <span class="text-lg font-bold text-muted">My website</span>
+        </div>
+        <!-- nav links -->
+        <div class="hidden md:flex items-center space-x-4 gap-6">
+          <div id="nav-links" class="flex">
+            <a
+              href="/"
+              class="py-4 px-2 text-muted font-semibold hover:text-primary"
+              data-link
+              >Home</a
+            >
+            <a
+              href="/pages/auth/login.html"
+              data-unauth
+              class="py-4 px-2 font-semibold hover:text-primary guest"
+              >Login</a
+            >
+            <a
+              href="/pages/auth/register.html"
+              data-unauth
+              class="py-4 px-2 font-semibold hover:text-primary guest"
+              >Register</a
+            >
+
+            <button id="logoutBtn" data-auth class="cursor-pointer">Logout</button>
+          </div>
+
+          <button
+            data-theme-toggle
+            aria-label="Toggle theme"
+            class="cursor-pointer"
+          ></button>
+        </div>
+        <!-- mobile-menu -->
+        <div class="flex md:hidden z-40">
+          <button id="burger-btn">
+            <i class="fa-solid fa-bars fa-xl"></i>
+          </button>
+        </div>
+        <div
+          id="mobile-menu-wrapper"
+          class="hidden justify-center flex-start absolute bg-blue-800 right-0 top-0 w-full h-screen z-30"
+        >
+          <a
+            href="/"
+            class="py-4 px-2 text-muted font-semibold hover:text-primary"
+            data-link
+            >Home</a
+          >
+          <a
+            href="/pages/auth/login.html"
+            data-link
+            class="py-4 px-2 font-semibold hover:text-primary guest"
+            >Login</a
+          >
+          <a
+            href="/pages/auth/register.html"
+            data-link
+            class="py-4 px-2 font-semibold hover:text-primary guest"
+            >Register</a
+          >
+          <button id="logoutBtn" class="hidden authed">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="container py-18 flex justify-center items-center flex-col">
+      <div id="listing-content" class="w-full max-w-2xl"></div>
+    </main>
+    <footer>
+      <div class="text-center py-4 bg-surface">
+        <p class="text-sm text-muted">
+          &copy; 2023 Action House. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
