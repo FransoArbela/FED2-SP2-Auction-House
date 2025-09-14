@@ -19,20 +19,3 @@ export const isAuth = () => {
     }
   });
 };
-
-export function isAuthBid() {
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest("#place-bid-btn");
-    if (!btn) return; // not the bid button
-
-    const token = localStorage.getItem("token");
-    if (!token) {
-      e.preventDefault();
-      e.stopPropagation();
-      alert("You must be logged in to place a bid.");
-    }
-    
-  });
-
-
-}

@@ -15,5 +15,8 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.12",
     "vite": "^7.1.2"
+  },
+  "dependencies": {
+    "flatpickr": "^4.6.13"
   }
 }

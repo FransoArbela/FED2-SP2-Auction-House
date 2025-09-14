@@ -1,9 +1,9 @@
 import { isAuth } from "../../utils/isAuth.js";
-import { singleListing } from "../../api/listings/single-listing";
-import { formatDate } from "../../utils/fomatDate";
-import { loadMultipleImgs } from "../../utils/imageLoader";
-import { objectNormalized } from "../../utils/objectNormalized";
-import { isActive } from "../../utils/isActiveListing";
+import { singleListing } from "../../api/listings/singleListing.js";
+import { formatDate } from "../../utils/fomatDate.js";
+import { loadMultipleImgs } from "../../utils/imageLoader.js";
+import { objectNormalized } from "../../utils/objectNormalized.js";
+import { isActive } from "../../utils/isActiveListing.js";
 import { placeBid } from "../../api/listings/placeBid.js";
 
 const renderAndLoad = async () => {
@@ -28,7 +28,7 @@ export const renderListingContent = async (listing, listingContent) => {
     const listingHeader = document.createElement("div");
     listingHeader.id = "listing-header";
     listingHeader.classList =
-      "flex flex-col gap-2 p-4 w-full bg-padding-color mb-2 rounded bg-[image:var(--color-padding-color)] shadow-md";
+      "flex flex-col gap-2 p-4 w-full mb-2 rounded bg-[image:var(--color-padding-color)] shadow-md";
     listingHeader.innerHTML = `
       <h1 class="text-2xl font-bold">${listing.title}</h1>
       <p>${listing.description}</p>
@@ -92,11 +92,22 @@ export const renderListingContent = async (listing, listingContent) => {
             .map(
               (bid) => `
         <div class="flex items-center gap-2 border-b border-fuchsia-100">
-            <img class="w-12 h-12 rounded-full" src="${bid.avatar.url}" alt="${bid.name}'s avatar" />
+            <img class="w-12 h-12 rounded-full" src="${bid.avatar.url}" alt="${
+                bid.name
+              }'s avatar" />
           <div class="flex flex-col p-2 rounded">
             <p>$${bid.amount}</p>
             <p class="text-fg font-bold">${bid.name}</p>
           </div>
+        <p class="text-fg/70 text-sm ml-auto">
+          ${new Date(bid.created).toLocaleString(undefined, {
+            year: "numeric",
+            month: "numeric",
+            day: "numeric",
+            hour: "2-digit",
+            minute: "2-digit",
+          })}
+        </p>
         </div>`
             )
             .join("")}
@@ -117,25 +128,33 @@ export const renderListingContent = async (listing, listingContent) => {
     const placeBidBtn = document.getElementById("place-bid-btn");
     const bidInput = document.getElementById("bid-input");
 
-    if (!placeBidBtn || !bidInput) return;
+    if (!placeBidBtn) return;
 
-    placeBidBtn.addEventListener("click", async () => {
-      if (bidInput.classList.contains("hidden")) {
-        bidInput.classList.remove("hidden");
-        bidInput.focus();
+    placeBidBtn.addEventListener("click", () => {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        alert("You must be logged in to place a bid.");
         return;
-      }
+      } else {
+        if (bidInput.classList.contains("hidden")) {
+          bidInput.classList.remove("hidden");
+          bidInput.focus();
+          return;
+        }
 
-      const value = bidInput.value.trim();
-      if (value > 0) {
-        const urlParams = new URLSearchParams(window.location.search);
-        const listingId = urlParams.get("id");
-        placeBid(value, listingId);
-      }
-      if (!value || value <= 0) {
-        console.error("Invalid bid value");
+        const value = bidInput.value.trim();
+        if (value > 0) {
+          const urlParams = new URLSearchParams(window.location.search);
+          const listingId = urlParams.get("id");
+          placeBid(value, listingId);
+        }
+        if (!value || value <= 0) {
+          alert("Please enter a valid bid amount.");
+        }
       }
     });
+
+    // Hide input when clicking outside
     document.addEventListener("click", (e) => {
       const clickedOutside =
         !bidInput.contains(e.target) && !placeBidBtn.contains(e.target);
@@ -165,7 +184,6 @@ const highestBid = (bids) => {
 };
 
 const listingAvailable = (date) => {
-  console.log(date);
   const ended = new Date(date);
   if (ended < Date.now()) {
     return `disabled:opacity-50 disabled:cursor-not-allowed" disabled`;

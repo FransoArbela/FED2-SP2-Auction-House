@@ -3,9 +3,9 @@ export const objectNormalized = (data, isMulti = null) => {
     return {
       id: data.id,
       bids: {
-        
         bidder: data.bids.map((bid) => ({
           amount: bid.amount,
+          created: bid.created,
           avatar: {
             url: bid.bidder.avatar?.url,
             alt: bid.bidder.avatar?.alt,
@@ -31,10 +31,11 @@ export const objectNormalized = (data, isMulti = null) => {
         },
       ],
       tags: data.tags?.map((tag) => tag) || [],
-      media: data.media?.map((item) => ({
-        url: item.url,
-        alt: item.alt,
-      })) || [],
+      media:
+        data.media?.map((item) => ({
+          url: item.url,
+          alt: item.alt,
+        })) || [],
     };
   }
 
