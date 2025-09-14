@@ -1,9 +1,3 @@
 [build]
   command = "npm run build"
   publish = "dist"
-
-[[redirects]]
-from = "/pages/*"
-to = "/pages/:splat.html"
-status = 301
-force = true
