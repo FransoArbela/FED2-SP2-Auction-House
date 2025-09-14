@@ -45,34 +45,43 @@ export const renderListingContent = async (listing, listingContent) => {
   const renderInfo = (listing, listingContent) => {
     const info = document.createElement("div");
     info.id = "info-container";
-    info.classList =
-      "flex flex-col items-end p-4 bg-padding-color mt-2 rounded bg-[image:var(--color-padding-color)] shadow-md";
+    info.classList = "items-end p-4 mt-2 rounded shadow-md";
     info.innerHTML = `
-     <div class="flex gap-4 justify-between flex-row w-full items-center">
-      <img class="w-18 h-18 rounded-full" src="${
-        listing.seller[0].avatar.url
-      }" alt="${listing.seller[0].name}'s avatar" />
-      <div class="flex flex-col items-start">
-        <p class="text-fg font-bold">${listing.seller[0].name}</p>
-        <p id="seller-email" class="text-fg">${listing.seller[0].email}</p>
-      </div>
-      <div class="flex flex-row">
-          <div class="text-fg flex items-center">
-            ${isActive(listing.endsAt)}
+     <div class="grid grid-cols-2 grid-rows-2  gap-4 w-full items-center">
+
+        <div class="col-span-2 flex gap-4 row-start-1 border-b p-4">
+          <img class="w-18 h-18 xxs:w-12 xxs:h-12 rounded-full" src="${
+            listing.seller[0].avatar.url
+          }" alt="${listing.seller[0].name}'s avatar" />
+          <div class="flex flex-col items-start">
+            <p class="text-fg font-bold">${listing.seller[0].name}</p>
+            <p id="seller-email" class="text-fg xxs:text-sm">${listing.seller[0].email}</p>
           </div>
-          <p class="rounded py-2 px-2 text-fg">${formatDate(listing.endsAt)}</p>
-      </div>
-      <div class="text-fg">
-     #${listing.count} bid${listing.count !== 1 ? "s" : ""}
-      </div>
-      <p class="text-fg font-bold">Highest Bid: $${highestBid(
-        listing.bids.bidder.map((bid) => bid.amount)
-      )}</p>
-    ${generateButton(listing)}
+        </div>
+
+        <div class="col-start-1 row-start-2 border-r">
+          <div class="flex flex-row">
+            <div class="text-fg flex items-center">
+              ${isActive(listing.endsAt)}
+            </div>
+            <p class="rounded py-2 px-2 text-fg">${formatDate(
+              listing.endsAt
+            )}</p>
+          </div>
+          <div class="text-fg">
+         #${listing.count} bid${listing.count !== 1 ? "s" : ""}
+          </div>
+          <p class="text-fg font-bold">Highest Bid: $${highestBid(
+            listing.bids.bidder.map((bid) => bid.amount)
+          )}</p>
+        </div>
+
+     
+       <div class="col-start-2 row-start-2 xxs:self-start md:self-center justify-self-center w-full flex flex-col gap-3">
+          ${generateButton(listing)}
+          <input type="number" step="1" id="bid-input" class=" w-full border hidden border-gray-300 p-2 rounded" placeholder="Enter your bid"/>
+       </div>
      </div>
-     <div class="flex gap-4 justify-end mt-4 w-full">
-     </div>
-     <input type="number" step="1" id="bid-input" class="w-35 border hidden border-gray-300 p-2 rounded" placeholder="Enter your bid"/>
     `;
     listingContent.appendChild(info);
   };
@@ -171,7 +180,7 @@ const renderImages = (media, container) => {
   const imgsContainer = document.createElement("div");
   imgsContainer.id = "imgs-container";
   imgsContainer.classList =
-    "flex gap-4 w-full bg-padding-color p-4 rounded-sm bg-[image:var(--color-padding-color)] shadow-md";
+    " flex flex-col gap-4 w-auto p-4 rounded-sm md:flex-row shadow-md";
   container.appendChild(imgsContainer);
 
   loadMultipleImgs(media, imgsContainer);
@@ -202,7 +211,7 @@ const generateButton = (listing) => {
 
   return `<button id="place-bid-btn" class="${listingAvailable(
     listing.endsAt
-  )} py-2 px-4 rounded bg-primary text-white hover:bg-primary-hover transition-colors cursor-pointer">Place a bid</button>`;
+  )} py-2 px-4 w-full rounded bg-primary text-white hover:bg-primary-hover transition-colors cursor-pointer">Place a bid</button>`;
 };
 
 renderAndLoad();

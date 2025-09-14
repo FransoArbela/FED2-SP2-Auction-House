@@ -1,4 +1,4 @@
-import router, { setActiveLink } from "./router.js";
+import router from "./router.js";
 import "./styles/main.css";
 import "../src/utils/nightmode.js";
 import "./utils/burgerMenu.js";
@@ -7,7 +7,6 @@ import { logout } from "./utils/logout.js";
 import "https://kit.fontawesome.com/553a084866.js";
 
 router();
-setActiveLink();
 logout();
 isAuth();
 

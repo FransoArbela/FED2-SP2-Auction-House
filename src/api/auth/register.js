@@ -6,7 +6,6 @@ export async function register(name, email, password) {
     email,
     password,
   };
-  console.log("Registering user with payload:", payload);
   try {
     const response = await fetch(`${API_AUTH_REGISTER}`, {
       method: "POST",

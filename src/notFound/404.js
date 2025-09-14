@@ -1,1 +1,1 @@
-alert("404 - Not Found");
+alert("404 - Page Not Found");

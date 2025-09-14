@@ -105,18 +105,6 @@ const setupSearchForm = () => {
 };
 setupSearchForm();
 
-const setupSortSelect = () => {
-  document
-    .querySelector("#sort-select")
-    .addEventListener("change", async (e) => {
-      const selectedOption = e.target.selectedOptions[0];
-      state.sort = selectedOption.value;
-      state.sortOrder = selectedOption.dataset.order;
-      await loadAndRender();
-    });
-};
-setupSortSelect();
-
 const forwardCard = () => {
   const cards = document.querySelectorAll("#listing-content");
   cards.forEach((card) => {

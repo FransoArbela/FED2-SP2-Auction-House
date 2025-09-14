@@ -66,7 +66,6 @@ export const editProfile = (avatar, banner, bio) => {
 
     const profile = JSON.parse(localStorage.getItem("profile"));
     const userName = profile.name;
-    console.log("Editing profile for user:", userName);
     const editProfileForm = editForm.querySelector("form");
     editProfileForm.addEventListener("submit", async (e) => {
       e.preventDefault();

@@ -18,7 +18,7 @@ export const placeBid = async (value, id) => {
     window.location.reload();
     if (!response.ok) throw new Error("Failed to place bid");
     const data = await response.json();
-    console.log("Bid placed successfully:", data);
+    return data;
   } catch (error) {
     console.error("Error placing bid:", error);
   }
