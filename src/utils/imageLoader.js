@@ -28,15 +28,16 @@ export const loadMultipleImgs = (images = [], container) => {
   // Layout
   const heroContainer = document.createElement("div");
   heroContainer.id = "hero-img-container";
-  heroContainer.classList = "w-full h-[600px] flex justify-center";
+  heroContainer.classList = " max-h-[45rem] w-full flex justify-center";
 
   const heroImg = document.createElement("img");
-  heroImg.classList = "hero-img  w-auto h-full";
+  heroImg.classList = "hero-img h-full";
   heroContainer.appendChild(heroImg);
 
   const thumbsContainer = document.createElement("div");
   thumbsContainer.id = "thumbnail-img-container";
-  thumbsContainer.classList = "flex flex-col gap-2 overflow-y-auto max-h-[36rem]";
+  thumbsContainer.classList =
+    "flex md:flex-col gap-2 overflow-y-auto max-h-[36rem]";
 
   container.append(heroContainer, thumbsContainer);
 
@@ -44,7 +45,10 @@ export const loadMultipleImgs = (images = [], container) => {
   const setSrc = (el, url, alt = "listing image") => {
     el.src = encodeURI(url || "");
     el.alt = alt;
-    el.onerror = () => { el.onerror = null; el.src = "/placeholder-img.png"; };
+    el.onerror = () => {
+      el.onerror = null;
+      el.src = "/placeholder-img.png";
+    };
   };
 
   // nothing to show
@@ -58,7 +62,7 @@ export const loadMultipleImgs = (images = [], container) => {
     const thumb = document.createElement("img");
     thumb.classList =
       "thumbnail w-24 h-24 object-cover rounded cursor-pointer transition ";
-    thumb.tabIndex = 0; 
+    thumb.tabIndex = 0;
     setSrc(thumb, url, alt);
 
     if (i === 0) {
@@ -76,7 +80,7 @@ export const loadMultipleImgs = (images = [], container) => {
     setSrc(heroImg, thumb.src, thumb.alt);
 
     // update highlight
-    thumbsContainer.querySelectorAll(".thumbnail").forEach(t => {
+    thumbsContainer.querySelectorAll(".thumbnail").forEach((t) => {
       t.classList.remove("filter-[brightness(0.5)]", "ring-emerald-500");
       t.removeAttribute("aria-current");
     });
@@ -88,5 +92,4 @@ export const loadMultipleImgs = (images = [], container) => {
     const t = e.target.closest(".thumbnail");
     if (t) activate(t);
   });
-
 };

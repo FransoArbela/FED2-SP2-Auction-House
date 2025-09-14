@@ -4,11 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="/src/utils/nightmode.js"></script>
-    <title>Vite App</title>
+    <meta
+      name="description"
+      content="View detailed information about this listing and place your bids to win exciting items."
+    />
+    <title>Single Listing</title>
   </head>
   <body
-    class="justify-items-center grid grid-rows-[auto,1fr,auto] bg-[image:var(--color-bg)] px-10 min-h-screen text-fg"
+    class="justify-items-center grid grid-rows-[auto,1fr,auto] bg-[image:var(--color-bg)] px-10 min-h-screen overflow-x-hidden text-fg"
   >
     <header
       class="flex justify-between items-center py-4 max-w-screen-xl container"
@@ -120,7 +123,7 @@
       </div>
     </header>
     <main
-      class="flex flex-col justify-center items-center py-18 w-full container"
+      class="flex flex-col justify-center items-center w-full container"
     >
       <div id="listing-content" class="w-full max-w-2xl"></div>
     </main>

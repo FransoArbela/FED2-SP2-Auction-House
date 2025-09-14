@@ -24,7 +24,7 @@ export const renderProfile = (profileData) => {
   profileContainer.innerHTML = `
 
       <div class="flex flex-col relative items-center mb-6 space-y-4 ">
-        <button id="edit-profile-btn" class="absolute right-4 top-4 cursor-pointer text-white hover:text-primary-hover w-fit h-fit px-4 py-2 rounded z-20">Edit</button>
+        <button id="edit-profile-btn" class="absolute right-4 top-4 cursor-pointer text-white bg-gray-300/50 hover:bg-white/80 hover:text-gray-500 px-2 py-1 rounded z-20">Edit</button>
           <img src="${user.banner.url}" alt="${user.banner.alt}" class="w-full max-h-96 object-cover rounded-lg brightness-75" />
           <img src="${user.avatar.url}" alt="${user.avatar.alt}" class="w-34 h-34 rounded-full absolute -bottom-5 border-4 border-white" />
         </div>
@@ -53,9 +53,9 @@ export const renderProfile = (profileData) => {
       "mt-8"
     );
     listingsContainer.innerHTML = `
-          <div class="flex flex-row justify-between items-center">
-          <h2 class="text-2xl font-semibold mb-4 mt-6">Your Listings (${user.count.listings})</h2>
-          <button id="create-listing-btn" class="bg-primary text-white px-4 py-2 cursor-pointer rounded hover:bg-primary-hover mb-4">Create New Listing</button>
+          <div class="flex flex-row justify-between mb-2 mt-2 items-center">
+          <h2 class="text-2xl font-semibold mb-2">Your Listings (${user.count.listings})</h2>
+          <button id="create-listing-btn" class="bg-primary text-white px-4 py-2 xxs:text-sm xxs:px-1 cursor-pointer rounded hover:bg-primary-hover">Create New Listing</button>
           </div>
 
           <div id="listings-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -96,7 +96,7 @@ export const renderProfile = (profileData) => {
           }" alt="${
         listing.media[0]?.alt || "Listing Image"
       }" class="w-full h-48 object-cover rounded mb-4" />
-          <button id="edit-listing-btn" class="absolute right-6 top-6 cursor-pointer text-white bg-gray-300/50 hover:bg-white/80 hover:text-gray-500 w-fit h-fit px-2 rounded z-20">Edit</button>
+          <button id="edit-listing-btn" class="absolute right-6 top-6 cursor-pointer text-white bg-gray-300/50 hover:bg-white/80 hover:text-gray-500 w-fit h-fit px-2 py-1 rounded z-20">Edit</button>
           <h3 class="font-semibold items-center text-xl mb-2">${
             listing.title
           }</h3>
@@ -105,7 +105,7 @@ export const renderProfile = (profileData) => {
         <p class="text-fg/80 text-sm items-center font-semibold">Created: ${new Date(
           listing.created
         ).toLocaleDateString()}</p>
-        ${isActive(listing.ends)}
+        ${isActive(listing.endsAt)}
           </div>
         </div>
       `;

@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <meta
+      name="description"
+      content="Browse and explore a wide range of exciting listings available for bidding."
+    />
+    <title>Home</title>
   </head>
   <body
     class="justify-items-center grid grid-rows-[auto,1fr,auto] bg-[image:var(--color-bg)] px-10 min-h-screen text-fg"
@@ -124,25 +128,9 @@
       <article
         class="flex lg:flex-row xxs:flex-col justify-between xxs:items-start lg:items-center gap-6 mb-4 w-full max-w-screen-xl"
       >
-        <div class="flex xxs:flex-row flex-col items-center gap-4 w-full">
-          <label for="sort-select" class="font-medium">Sort by:</label>
-          <select
-            id="sort-select"
-            class="hover:bg-secondary-hover px-4 py-2 border border-border rounded md:w-36 transition-colors cursor-pointer"
-          >
-            <option class="bg-[image:var(--color-bg)]">--</option>
-            <option
-              class="bg-[image:var(--color-bg)]"
-              value="created"
-              data-order="desc"
-            >
-              Created (Newest)
-            </option>
-          </select>
-        </div>
         <form
           name="search-form"
-          class="flex xxs:flex-row flex-col justify-center xxs:justify-start lg:justify-center items-center gap-4 w-full"
+          class="flex xxs:flex-row flex-col justify-center justify-start items-center gap-4 w-full"
         >
           <label for="search-input" class="font-medium">Search:</label>
           <input

@@ -29,17 +29,3 @@ export default async function router(pathname = window.location.pathname) {
       await import("./notFound/404.js");
   }
 }
-
-export function navigate(path) {
-  history.pushState({}, "", path);
-  router(path);
-}
-
-export function setActiveLink(path) {
-  document.querySelectorAll("a[data-link]").forEach((a) => {
-    const isActive = a.getAttribute("href") === path;
-    a.classList.toggle("bg-slate-800", isActive);
-  });
-}
-
-window.addEventListener("popstate", () => router());

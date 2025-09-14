@@ -16,7 +16,8 @@ export const newListing = () => {
       "flex",
       "items-center",
       "justify-center",
-      "z-30"
+      "z-30",
+      "w-full",
     );
 
     const newListingForm = document.createElement("div");
@@ -37,37 +38,38 @@ export const newListing = () => {
       "text-white",
       "items-center",
       "relative"
+      ,"w-full",
     );
     newListingForm.innerHTML = `
-            <button id="close-edit-btn" type="button" class="self-end absolute cursor-pointer mb-4 text-fg hover:text-primary-hover w-fit h-fit px-4 py-2 rounded z-20">Close</button>
-            <form class=" w-[25rem] justify-center flex flex-col h-full">
-                <h2 class="text-2xl font-semibold text-fg mb-4">Create New Listing</h2>
+          <button id="close-edit-btn" type="button" class="self-end absolute cursor-pointer mb-4 text-fg hover:text-primary-hover w-fit h-fit px-4 py-2 rounded z-20">Close</button>
+         <form class=" w-full max-w-[25rem] justify-center flex flex-col h-full">
+                  <h2 class="text-2xl font-semibold text-fg mb-4">Create New Listing</h2>
 
-                <label for="title" class="block text-fg mb-2">Title:</label>
-                <input type="text" id="title" placeholder="Enter title" class="border text-fg border-fg p-2 rounded mb-4" />
+                  <label for="title" class="block text-fg mb-2">Title:</label>
+                  <input type="text" id="title" placeholder="Enter title" class="border text-fg border-fg p-2 rounded mb-4" />
 
-                <label for="description" class="block text-fg mb-2">Description:</label>
-                <textarea id="description" placeholder="Enter description" class="border text-fg min-h-[5rem] border-fg p-2 rounded mb-4"></textarea>
+                  <label for="description" class="block text-fg mb-2">Description:</label>
+                  <textarea id="description" placeholder="Enter description" class="border text-fg min-h-[5rem] border-fg p-2 rounded mb-4"></textarea>
 
-                <div id="saved-images-container" class="mb-4 flex flex-wrap gap-2 overflow-y-auto max-h-40"></div>
-                <div class="flex flex-row items-center gap-2">
-                 <div>
-                   <label for="image" class="block text-fg mb-2">Image:</label>
-                   <input type="url" id="image" placeholder="Enter image URL" class="border text-fg border-fg p-2 rounded mb-4" />
-                 </div>
+                  <div id="saved-images-container" class="mb-4 flex flex-wrap gap-2 overflow-y-auto max-h-40"></div>
+                  <div class="flex flex-row items-center w-full gap-2 mb-4">
+                     <div class="mb-4">
+                       <label for="image" class="block text-fg mb-2">Image:</label>
+                       <input type="url" id="image" placeholder="Enter image URL" class="border text-fg border-fg p-2 w-full rounded" />
+                     </div>
 
-                 <div>
-                  <label for="bannerAlt" class="block text-fg mb-2">Image Alt Text:</label>
-                  <input type="text" id="bannerAlt" placeholder="Enter banner alt text" class="border text-fg border-fg p-2 rounded mb-4" />
-                 </div>
-              </div>
+                     <div class="mb-4">
+                      <label for="bannerAlt" class="block text-fg mb-2">Image Alt Text:</label>
+                      <input type="text" id="bannerAlt" placeholder="Enter banner alt text" class="border text-fg border-fg p-2 w-full rounded" />
+                     </div>
+                  </div>
 
-              <button id="add-image-btn" class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded cursor-pointer mt-4">Add image</button>
- 
+                <button id="add-image-btn" class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded cursor-pointer mt-4">Add image</button>
+    
 
-              <label for="endDate" class="block text-fg mb-2">End Date:</label>
-              <input id="endDate" type="text" required step="60" class="input border text-fg border-fg p-2 rounded mb-4" placeholder="Select date" />
-              <button id="save-changes-btn" class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded cursor-pointer mt-4">Save Changes</button>
+                <label for="endDate" class="block text-fg mb-2">End Date:</label>
+                <input id="endDate" type="text" required step="60" class="input border text-fg border-fg p-2 rounded mb-4" placeholder="Select date" />
+                <button id="save-changes-btn" class="bg-primary hover:bg-primary-hover text-white px-4 py-2 rounded cursor-pointer mt-4">Save Changes</button>
             </form>
                 `;
 

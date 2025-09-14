@@ -9,7 +9,6 @@ export const editListing = async (listingData, listingId) => {
     tags: listingData.tags,
     media: listingData.media || [],
   };
-  console.log("Editing listing with ID:", listingId, "Data:", credentials);
   try {
     const response = await fetch(`${API_ACTION_LISTINGS}/${listingId}`, {
       method: "PUT",
