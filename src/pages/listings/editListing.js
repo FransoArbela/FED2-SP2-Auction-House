@@ -16,12 +16,12 @@ export const edit = (listing, listingId) => {
     "flex",
     "items-center",
     "justify-center",
-    "z-30"
+    "z-30",
   );
   editContainer.innerHTML = `
-          <div id="edit-listing-form" class="bg-[image:var(--color-padding-color)] backdrop-blur-[100px] inset-0 opacity-90 flex flex-col p-6 rounded-lg shadow-md max-w-screen-lg w-full text-white items-center relative">
+          <div id="edit-listing-form" class="bg-[image:var(--color-padding-color)] backdrop-blur-[100px] max-h-[80vh] custom-scroll overflow-y-auto inset-0 opacity-90 flex flex-col p-6 rounded-lg shadow-md max-w-screen-lg w-full text-white items-center  relative">
             <button id="close-edit-btn" type="button" class="self-end absolute cursor-pointer mb-4 text-fg hover:text-primary-hover w-fit h-fit px-4 py-2 rounded z-20">Close</button>
-            <form class=" w-[25rem] justify-center flex flex-col h-full">
+            <form class=" max-w-[25rem] justify-center flex flex-col h-full">
                 <h2 class="text-2xl font-semibold text-fg mb-4">Edit Listing</h2>
                 <label for="title" class="block text-fg mb-2">Title:</label>
                 <input type="text" id="title" value="${
