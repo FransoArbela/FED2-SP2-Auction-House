@@ -9,7 +9,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         login: resolve(__dirname, "pages/auth/login.html"),
         register: resolve(__dirname, "pages/auth/register.html"),
-        singleListing: resolve(__dirname, "pages/listings/single-listing.html"),
+        createListing: resolve(__dirname, "pages/listings/create-listing.html"),
         profile: resolve(__dirname, "pages/profile/profile.html"),
       },
     },

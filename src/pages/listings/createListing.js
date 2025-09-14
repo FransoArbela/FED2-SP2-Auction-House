@@ -37,8 +37,9 @@ export const newListing = () => {
       "w-full",
       "text-white",
       "items-center",
-      "relative"
-      ,"w-full",
+      "relative",
+      "w-full",
+      
     );
     newListingForm.innerHTML = `
           <button id="close-edit-btn" type="button" class="self-end absolute cursor-pointer mb-4 text-fg hover:text-primary-hover w-fit h-fit px-4 py-2 rounded z-20">Close</button>
