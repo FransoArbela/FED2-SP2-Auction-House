@@ -13,7 +13,6 @@ export const singleListing = async (id) => {
       throw new Error("Failed to fetch listing");
     }
     const data = await response.json();
-    console.log(data);
     return data;
 
   } catch (error) {

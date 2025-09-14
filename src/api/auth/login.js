@@ -1,12 +1,10 @@
 import { API_BASE } from "../constants";
 
-const login = async (email, password) => {
-const credentials = {
+export const login = async (email, password) => {
+  const credentials = {
     email: email,
     password: password,
   };
-
-  console.log("Logging in with:", credentials);
 
   try {
     const response = await fetch(`${API_BASE}/auth/login`, {
@@ -18,10 +16,10 @@ const credentials = {
       body: JSON.stringify(credentials),
     });
 
-    if (!response.ok) {
-      throw new Error("Login failed");
-    }
     const data = await response.json();
+    if (!response.ok) {
+      return { error: data.errors?.[0]?.message || "Login failed" };
+    }
 
     const profile = JSON.stringify(data.data);
     localStorage.setItem("profile", profile);
@@ -30,11 +28,7 @@ const credentials = {
     localStorage.setItem("token", token);
 
     return data;
-
-  } catch (error) {
-    console.error(error);
-    throw error;
+  } catch (err) {
+    return { error: "Network error. Please try again." };
   }
 };
-
-export { login };

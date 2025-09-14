@@ -1,9 +1,8 @@
-import { isAuth, isAuthBid } from "./utils/isAuth.js";
 export default async function router(pathname = window.location.pathname) {
   switch (pathname) {
     case "/":
     case "/index.html":
-      await import("./pages/listings/all-listings.js");
+      await import("./pages/listings/allListings.js");
       break;
 
     case "/pages/auth/login.html":
@@ -15,16 +14,15 @@ export default async function router(pathname = window.location.pathname) {
       break;
 
     case "/pages/listings/create-listing.html":
-      await import("./pages/listings/create-listing.js");
+      await import("./pages/listings/createListing.js");
       break;
 
     case "/pages/listings/single-listing.html":
-      await import("./pages/listings/single-listing.js");
-      isAuthBid();
+      await import("./pages/listings/singleListing.js");
       break;
     case "/pages/profile/profile.html":
     case "/pages/profile/":
-      await import("./pages/profile/load-profile.js");
+      await import("./api/profiles/loadProfile.js");
       break;
 
     default:

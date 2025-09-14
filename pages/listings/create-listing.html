@@ -8,86 +8,124 @@
     <title>Vite App</title>
   </head>
   <body
-    class="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen grid grid-rows-[auto,1fr,auto]"
+    class="justify-items-center grid grid-rows-[auto,1fr,auto] bg-[image:var(--color-bg)] px-10 min-h-screen text-fg"
   >
-    <header>
-      <nav class="container flex justify-between items-center mx-auto px-4">
-        <div class="">
-          <span class="text-lg font-bold text-gray-500 dark:text-gray-50"
-            >My website</span
-          >
-        </div>
-        <div class="hidden md:flex items-center space-x-4 gap-6">
+    <header
+      class="flex justify-between items-center py-4 max-w-screen-xl container"
+    >
+      <!-- logo -->
+      <div id="logo">
+        <span class="w-fit font-bold text-muted text-lg">My website</span>
+      </div>
+      <nav>
+        <!-- nav links -->
+        <div class="hidden sm:flex items-center gap-6 space-x-4">
           <div id="nav-links" class="flex">
             <a
               href="/"
-              class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-700 dark:hover:text-blue-400 dark:text-gray-200 transition duration-300"
               data-link
+              class="px-2 font-semibold text-muted hover:text-primary"
               >Home</a
             >
             <a
-              href="/pages/listings/create-listing.html"
-              data-link
-              class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-700 dark:hover:text-blue-400 dark:text-gray-200 transition duration-300 authed"
-              >Create</a
-            >
-            <a
-              href="/pages/profile/profile.html"
+              href=""
+              data-auth
               data-link
               id="profile-link"
-              class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-700 dark:hover:text-blue-400 dark:text-gray-200 transition duration-300 authed"
+              class="px-2 font-semibold text-muted hover:text-primary"
               >Profile</a
             >
             <a
               href="/pages/auth/login.html"
+              data-unauth
               data-link
-              class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-700 dark:hover:text-blue-400 dark:text-gray-200 transition duration-300 guest"
+              class="px-2 font-semibold hover:text-primary guest"
               >Login</a
             >
             <a
               href="/pages/auth/register.html"
+              data-unauth
               data-link
-              class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-700 dark:hover:text-blue-400 dark:text-gray-200 transition duration-300 guest"
+              class="px-2 font-semibold hover:text-primary guest"
               >Register</a
             >
-            <button id="logoutBtn" class="cursor-pointer" data-auth>Logout</button>
+            <button
+              id="logoutBtn"
+              class="px-2 font-semibold text-muted hover:text-primary cursor-pointer"
+              data-auth
+            >
+              Logout
+            </button>
           </div>
-          <button id="theme-toggler" class="theme-toggle-button">
-            <i class="fa-solid fa-moon fa-xl" style="color: #525252"></i>
-          </button>
         </div>
-
-        <div class="flex md:hidden z-40">
+        <!-- mobile-menu -->
+        <div class="sm:hidden z-40 absolute flex">
           <button id="burger-btn">
             <i class="fa-solid fa-bars fa-xl"></i>
           </button>
         </div>
         <div
           id="mobile-menu-wrapper"
-          class="hidden justify-center flex-start absolute bg-blue-800 dark:bg-gray-700 right-0 top-0 w-full h-screen z-30"
+          class="hidden top-0 right-0 z-20 absolute flex-col justify-center items-center gap-15 bg-menu-bg w-full h-screen"
         >
-          <div
-            id="mobile-menu"
-            class="flex md:hidden flex-col items-center space-x-1 mt-20"
+          <a href="/" class="hover:text-primary ont-semibold color-fg" data-link
+            >Home</a
           >
-            <a
-              class="py-4 px-2 text-gray-200 font-semibold hover:text-blue-700 dark:text-gray-200"
-              href="/profile"
-              >Login</a
-            >
-
-            <button id="theme-toggler" class="theme-toggle-button mt-6">
-              <i class="fa-solid fa-moon fa-xl" style="color: #dddddd"></i>
-            </button>
-          </div>
+          <a
+            href="#"
+            class="hover:text-primary ont-semibold color-fg"
+            data-auth
+            data-link
+            id="profile-link"
+            >Profile</a
+          >
+          <h3 id="bid-balance" data-auth class="font-semibold text-credits">
+            Balance: ...
+          </h3>
+          <a
+            href="/pages/auth/login.html"
+            data-unauth
+            data-link
+            class="font-semibold hover:text-primary"
+            >Login</a
+          >
+          <a
+            href="/pages/auth/register.html"
+            data-unauth
+            data-link
+            class="font-semibold hover:text-primary"
+            >Register</a
+          >
+          <!-- theme toggle -->
+          <button
+            data-theme-toggle
+            aria-label="Toggle theme"
+            class="cursor-pointer"
+          ></button>
+          <button id="logoutBtn" class="w-fit cursor-pointer" data-auth>
+            Logout
+          </button>
         </div>
       </nav>
+      <div class="hidden sm:flex items-center gap-6">
+        <h3 id="bid-balance" data-auth class="font-semibold text-credits">
+          Balance: ...
+        </h3>
+        <!-- theme toggle -->
+        <button
+          data-theme-toggle
+          aria-label="Toggle theme"
+          class="hidden sm:block cursor-pointer"
+        ></button>
+      </div>
     </header>
 
-    <main class="container mx-auto my-7"></main>
+    <main
+      class="flex flex-col justify-center items-center py-18 w-full container"
+    ></main>
     <footer>
-      <div class="text-center py-4 bg-gray-200 dark:bg-gray-800">
-        <p class="text-sm text-gray-600 dark:text-gray-400">
+      <div class="bg-gray-200 dark:bg-gray-800 py-4 text-center">
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
           &copy; 2023 Action House. All rights reserved.
         </p>
       </div>

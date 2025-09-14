@@ -3,9 +3,7 @@ import { apiKey } from "../auth/apiKey.js";
 
 export const placeBid = async (value, id) => {
   if (!value || !id) return;
-  console.log(parseInt(value));
   const amount = parseInt(value);
-  console.log(amount);
   try {
     const response = await fetch(`${API_ACTION_LISTINGS}/${id}/bids`, {
       method: "POST",

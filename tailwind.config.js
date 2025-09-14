@@ -34,6 +34,9 @@ export default {
           cardHover: "rgba(var(--color-card-hover))",
           hColor: "rgba(var(--color-h-color))",
           paddingColor: "rgba(var(--color-padding-color))",
+          textContrast: "rgba(var(--color-contrast))",
+          credits: "rgba(var(--color-credits))",
+          sbTrack: "rgba(var(--sb-track))",
         },
         accent: {
           light: "#FCD34D",

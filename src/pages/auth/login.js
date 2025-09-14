@@ -1,19 +1,24 @@
-import {login} from '../../api/auth/login.js';
+import { login } from "../../api/auth/login.js";
 
-const form = document.forms['loginForm'];
+const form = document.forms["loginForm"];
+const errorDiv = document.getElementById("errorDiv");
 
-form.addEventListener('submit', async (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const formData = new FormData(form);
-  const email = formData.get('email');
-  const password = formData.get('password');
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  
-  const response = await login(email, password);
-  if (response) {
-    window.location.href = `${window.location.origin}/index.html`;
+  const { data, error } = await login(email, password);
+
+  if (error) {
+    errorDiv.textContent = error;
+    errorDiv.classList.remove("hidden");
   } else {
-    alert('Login failed. Please try again.');
+    errorDiv.classList.add("hidden");
+    const profile = localStorage.getItem("profile");
+    const user = profile ? JSON.parse(profile) : null;
+
+    window.location.href = `/pages/profile/profile.html?name=${user.name}`;
   }
 });

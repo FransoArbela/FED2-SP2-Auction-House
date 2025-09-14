@@ -1,10 +1,9 @@
-import { allListings } from "../../api/listings/all-listings";
+import { allListings } from "../../api/listings/allListings";
 import { formatDate } from "../../utils/fomatDate";
 import { state } from "../../utils/listingState";
 import { loadSingleImg } from "../../utils/imageLoader";
 import { objectNormalized } from "../../utils/objectNormalized";
 import { isActive } from "../../utils/isActiveListing";
-
 
 export const loadAndRender = async () => {
   const data = await allListings(state);
@@ -12,8 +11,6 @@ export const loadAndRender = async () => {
 };
 
 const displayListings = async (listingData) => {
-
-
   const listings = objectNormalized(listingData.data, true);
 
   const listingContent = document.getElementById("listing-content");
@@ -61,9 +58,13 @@ const displayListings = async (listingData) => {
   </div>
 
   <!-- Info -->
-
   <div class="py-2">
-    <h3 class="text-base font-semibold  line-clamp-1">${listing.title}</h3>
+    <div class="flex justify-between items-center mb-1">
+      <h3 class="text-base font-semibold  line-clamp-1">${listing.title}</h3>
+      <p class="text-sm text-gray-400">${new Date(
+        listing.created
+      ).toLocaleDateString("de-DE")}</p>
+    </div>
     <p class="mt-1 text-sm  line-clamp-2">
       ${listing.description}
     </p>
@@ -88,7 +89,6 @@ const displayListings = async (listingData) => {
     listingContent.appendChild(listingElement);
   });
 };
-
 
 const setupSearchForm = () => {
   document
@@ -128,7 +128,6 @@ const forwardCard = () => {
     });
   });
 };
-
 
 export const setupToggle = () => {
   const toggle = document.getElementById("toggle");

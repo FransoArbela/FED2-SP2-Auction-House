@@ -4,13 +4,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script type="module" src="/src/utils/nightmode.js"></script>
     <title>Vite App</title>
   </head>
   <body
     class="justify-items-center grid grid-rows-[auto,1fr,auto] bg-[image:var(--color-bg)] px-10 min-h-screen text-fg"
   >
-    <header class="flex justify-between items-center max-w-screen-xl container">
+    <header
+      class="flex justify-between items-center py-4 max-w-screen-xl container"
+    >
       <!-- logo -->
       <div id="logo">
         <span class="w-fit font-bold text-muted text-lg">My website</span>
@@ -22,33 +23,34 @@
             <a
               href="/"
               data-link
-              class="px-2 py-4 font-semibold text-muted hover:text-primary"
+              class="px-2 font-semibold text-muted hover:text-primary"
               >Home</a
             >
             <a
-              href="/pages/profile/profile.html"
+              href=""
               data-auth
               data-link
-              class="px-2 py-4 font-semibold text-muted hover:text-primary"
+              id="profile-link"
+              class="px-2 font-semibold text-muted hover:text-primary"
               >Profile</a
             >
             <a
               href="/pages/auth/login.html"
               data-unauth
               data-link
-              class="px-2 py-4 font-semibold hover:text-primary guest"
+              class="px-2 font-semibold hover:text-primary guest"
               >Login</a
             >
             <a
               href="/pages/auth/register.html"
               data-unauth
               data-link
-              class="px-2 py-4 font-semibold hover:text-primary guest"
+              class="px-2 font-semibold hover:text-primary guest"
               >Register</a
             >
             <button
               id="logoutBtn"
-              class="px-2 py-4 font-semibold text-muted hover:text-primary cursor-pointer"
+              class="px-2 font-semibold text-muted hover:text-primary cursor-pointer"
               data-auth
             >
               Logout
@@ -56,28 +58,29 @@
           </div>
         </div>
         <!-- mobile-menu -->
-        <div class="sm:hidden z-40 flex">
+        <div class="sm:hidden z-40 absolute flex">
           <button id="burger-btn">
             <i class="fa-solid fa-bars fa-xl"></i>
           </button>
         </div>
         <div
           id="mobile-menu-wrapper"
-          class="md:hidden top-0 right-0 z-30 absolute xxs:flex flex-col justify-center items-center gap-15 bg-menu-bg w-full h-screen"
+          class="hidden top-0 right-0 z-20 absolute flex-col justify-center items-center gap-15 bg-menu-bg w-full h-screen"
         >
-          <a
-            href="/"
-            class="hover:text-primary ont-semibold color-fg"
-            data-link
+          <a href="/" class="hover:text-primary ont-semibold color-fg" data-link
             >Home</a
           >
           <a
-            href="/"
+            href=""
             class="hover:text-primary ont-semibold color-fg"
             data-auth
             data-link
+            id="profile-link"
             >Profile</a
           >
+          <h3 id="bid-balance" data-auth class="font-semibold text-credits">
+            Balance: ...
+          </h3>
           <a
             href="/pages/auth/login.html"
             data-unauth
@@ -103,12 +106,17 @@
           </button>
         </div>
       </nav>
-      <!-- theme toggle -->
-      <button
-        data-theme-toggle
-        aria-label="Toggle theme"
-        class="cursor-pointer"
-      ></button>
+      <div class="hidden sm:flex items-center gap-6">
+        <h3 id="bid-balance" data-auth class="font-semibold text-credits">
+          Balance: ...
+        </h3>
+        <!-- theme toggle -->
+        <button
+          data-theme-toggle
+          aria-label="Toggle theme"
+          class="hidden sm:block cursor-pointer"
+        ></button>
+      </div>
     </header>
     <main
       class="flex flex-col justify-center items-center py-18 w-full container"
@@ -175,8 +183,8 @@
       ></article>
     </main>
     <footer>
-      <div class="bg-surface py-4 text-center">
-        <p class="text-muted text-sm">
+      <div class="bg-bg py-4 text-center">
+        <p class="text-fg/60 text-sm">
           &copy; 2023 Action House. All rights reserved.
         </p>
       </div>
