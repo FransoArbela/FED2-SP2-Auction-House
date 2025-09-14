@@ -26,6 +26,6 @@ export default async function router(pathname = window.location.pathname) {
       break;
 
     default:
-      await import("./notFound/404.js");
+      // await import("./notFound/404.js");
   }
 }
